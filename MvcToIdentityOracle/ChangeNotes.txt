@@ -4,7 +4,9 @@ Install-Package Microsoft.AspNet.Identity.Owin -Version 2.0.1
 Install-Package Microsoft.Owin.Host.SystemWeb -Version 2.1.0
 
 Add > Existing Project > C:\Users\james.white\Documents\Visual Studio 2013\Projects\Asp.Identity.Oracle\Asp.Identity.Oracle\C:\Users\james.white\Documents\Visual Studio 2013\Projects\Asp.Identity.Oracle\Asp.Identity.Oracle.csproj
-References > Add > Solution > Project > Asp.Identity.Oracle
+
+References > Add Reference > Solution > Project > Asp.Identity.Oracle
+Refernces > Add Reference > Assemblies Extension > Oracle.ManagedDataAccess
 
 Models Folder > Add > class > IdentityModels.cs
 	Get details ....
@@ -32,6 +34,11 @@ Change namespace to <current>.Models
 Controllers Folder > Copy AccountContoller.cs, ManageContoller.cs, RolesAdminContoller.cs, UsersAdminContoller.cs
 Change using <current>.Models and namespace <current>.Controllers
 
+Views Folder > Shared > Copy _LoginPartial.cshtml, Lockout.cshtml
+Views Folder > Copy Dirs > Account/*.*, Manage/*.*, RolesAdmin.*.*, UsersAdmin/*.*
+
+Edit > Replace in Files > oldnmaespace, currentnamespace, *.cshtml
+
 Views > Shared > _Layout.cshtml
 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
 {
@@ -40,11 +47,6 @@ Views > Shared > _Layout.cshtml
 }
 ...
 @Html.Partial("_LoginPartial")
-
-Views > Shared > Copy _LoginPartial.cshtml, Lockout.cshtml
-
-Views > Copy Dirs > Account/*.*, Manage/*.*, RolesAdmin.*.*, UsersAdmin/*.*
-Edit > Replace in Files > oldnmaespace, currentnamespace, *.cshtml
 
 Web.config
 Ad
